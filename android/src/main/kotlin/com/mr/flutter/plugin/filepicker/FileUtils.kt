@@ -149,7 +149,7 @@ object FileUtils {
                 intent.type = this.type
                 intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, this.isMultipleSelection)
                 intent.putExtra("multi-pick", this.isMultipleSelection)
-
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 type?.takeIf { it.contains(",") }
                     ?.split(",")
                     ?.filter { it.isNotEmpty() }
@@ -164,7 +164,7 @@ object FileUtils {
                     type = this@startFileExplorer.type
                     putExtra(Intent.EXTRA_ALLOW_MULTIPLE, isMultipleSelection)
                     putExtra("multi-pick", isMultipleSelection)
-
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                     allowedExtensions?.let {
                         putExtra(Intent.EXTRA_MIME_TYPES, it.toTypedArray())
                     }
