@@ -513,7 +513,6 @@ object FileUtils {
                 return null
             } finally {
                 try {
-                    fileOutputStream?.fd?.sync()
                     fileOutputStream?.close()
                     fileInputStream?.close()
                 } catch (ex: IOException) {
